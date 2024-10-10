@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1022483005700",
+    "project_id": "coffeelp",
+    "storage_bucket": "coffeelp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022483005700:android:823a24a5d15966659e9051",
+        "android_client_info": {
+          "package_name": "com.example.lp_2024"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbDRwBHzgKmN7X5m0-btmsT_la6Fvd-aQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022483005700:android:2d2e6d7be11fce649e9051",
+        "android_client_info": {
+          "package_name": "com.unicode.coffee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbDRwBHzgKmN7X5m0-btmsT_la6Fvd-aQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
