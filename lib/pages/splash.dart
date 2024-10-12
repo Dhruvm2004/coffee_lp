@@ -20,29 +20,13 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.brown.shade700,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AnimatedSplashScreen(
-              splash: Icons.coffee,
-              backgroundColor: Colors.brown,
-              splashTransition: SplashTransition.fadeTransition,
-              nextScreen: HomePage(),
-              duration: 2000, // Adjust duration if necessary
-            ),
-            Container(
-              child: Text(
-                "MugMate",
-                style: GoogleFonts.styleScript(
-                  fontSize: 26,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-          ],
-        ),
+      body: AnimatedSplashScreen(
+        splash: Icons.coffee,
+        backgroundColor: Colors.brown,
+        splashTransition: SplashTransition.fadeTransition,
+        nextScreen: HomePage(),
+        duration: 2000,
+        splashIconSize: 100, // Optional size adjustment
       ),
     );
   }
