@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lp_2024/components/bottom_nav.dart';
 import 'dart:ui';
 import 'package:lp_2024/pages/front_page.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     try {
       await Auth()
           .signInWithEmailAndPassword(email: email.text, pass: pass.text);
-      Navigator.pushNamed(context, '/front');
+      Navigator.pushNamed(context, '/bottom');
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message;

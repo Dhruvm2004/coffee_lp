@@ -43,6 +43,7 @@ dependencies:
   page_transition: ^2.1.0
   iconsax_flutter: ^1.0.0
   get: ^4.1.4
+  http: ^1.2.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,9 +69,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     
-  - images/coffe6.jpg
-  - images/coffe8.jpg
-  - images/animations/ani-1.json
+  - assets/images/coffe6.jpg
+  - assets/images/coffe8.jpg
+  - assets/images/animations/ani-1.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

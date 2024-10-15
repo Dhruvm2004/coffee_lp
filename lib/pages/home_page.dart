@@ -46,13 +46,13 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         letterSpacing: 1),
                   ),
-                  SizedBox(height: 80,width: 100),
+                  SizedBox(height: 80),
                   InkWell(
                     onTap: ()=>Navigator.pushNamed(context,MyRoutes.loginRoute),
                     child: Container(
                       alignment: Alignment.center,
                       padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                       decoration: BoxDecoration(
                         color: Colors.green,
                         borderRadius: BorderRadius.circular(10),
@@ -62,6 +62,7 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.w900,
                         color: Colors.white
                       ),),
+                      
                     ),
                   )
                 ],

@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:lp_2024/components/bottom_nav.dart';
 import 'package:lp_2024/components/cart.dart';
 import 'package:lp_2024/components/profile.dart';
 
@@ -29,6 +30,15 @@ class MugMate extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.black,
+        appBarTheme: AppBarTheme(
+          color: Colors.brown[700],
+          elevation: 0.0,
+          iconTheme: IconThemeData(
+            color: Colors.white
+          ),
+          
+
+        )
       ),
       home:Splash(),
       routes: {
@@ -38,6 +48,7 @@ class MugMate extends StatelessWidget {
         MyRoutes.frontroute:(context)=>FrontPage(),
         MyRoutes.cartRoute:(context)=>CartPage(),
         MyRoutes.profileRoute:(context)=>ProfilePage(),
+        MyRoutes.bottomRoute:(context)=>BottomNav(),
         
       },
     );

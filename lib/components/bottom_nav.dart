@@ -29,19 +29,19 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.brown,
-        height: 80,
-        elevation: 0,
-        selectedIndex: _selectedIndex,
-        onDestinationSelected: _onItemTapped,
-        destinations: const [
-          NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Iconsax.shopping_cart), label: 'Cart'),
-          NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
-        ],
-      ),
-    );
+        body: _pages[_selectedIndex],
+        bottomNavigationBar: NavigationBar(
+          backgroundColor: Colors.brown,
+          height: 80,
+          elevation: 0,
+          selectedIndex: _selectedIndex,
+          onDestinationSelected: _onItemTapped,
+          destinations: const [
+            NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
+            NavigationDestination(
+                icon: Icon(Iconsax.shopping_cart), label: 'Cart'),
+            NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
+          ],
+        ));
   }
 }
