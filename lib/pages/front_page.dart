@@ -1,11 +1,12 @@
-
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:lp_2024/models/all_pro.dart';
+import 'package:lp_2024/models/hot.dart';
 import 'package:lp_2024/pages/auth.dart';
+import 'package:lp_2024/utils/routes.dart';
 
 class FrontPage extends StatefulWidget {
   const FrontPage({super.key});
@@ -22,6 +23,10 @@ Future<void> signOut() async {
 
 class _FrontPageState extends State<FrontPage> {
   List<Instruction> postList = [];
+
+  String? selectedType;
+  final List<String> chipOptions = ['ALL', 'Hot', 'Cold', 'Food'];
+  int? _value = 0;
 
   Future<List<Instruction>> getPostApi() async {
     final response = await http.get(
@@ -42,97 +47,113 @@ class _FrontPageState extends State<FrontPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          "Home",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: FutureBuilder<List<Instruction>>(
-              future: getPostApi(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return Center(child: Text("Error: ${snapshot.error}"));
-                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return Center(child: Text("No products found"));
-                } else {
-                  postList = snapshot.data!;
-                  return ListView.builder(
-                    itemCount: postList.length,
-                    itemBuilder: (context, index) {
-                      final product = postList[index];
-                      return Card(
-                        margin: EdgeInsets.all(8.0),
-                        
-                        
-                        
-                        
-                        child: Padding(
-                          
-                          padding: EdgeInsets.all(16.0),
-                          
-                          
-                          
-                          
-                          
-                          child: 
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                
-                                children: [
-                                  
-                                 
-                                  Text(
-                                    product.name, // Assuming 'name' is a field in Instruction
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(height: 8.0),
-                                  Text(
-                                    "Time: \$${product.prepTime}", // Assuming 'price' is a field
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                  
-                                            Row(
-                                               mainAxisAlignment: MainAxisAlignment.end,
-                                               children: [
-                                                ElevatedButton(onPressed: (){}, 
-                                                style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.brown.shade800))
-                                                ,child: Icon(Icons.add,color: Colors.white,))
-                                               ],
-                                            )
-                                  
-                                  
-                                ],
-                              ),
-                            
-                          ),
-                          
-                          
-                        
-                        
-                        
-                      );
-                    },
-                  );
-                }
-              },
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text(
+            "Home",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
-        ],
-      ),
-    );
+        ),
+        body: Column(children: [
+          Wrap(
+              children: List.generate(4, (int index) {
+            return ChoiceChip(
+              padding: EdgeInsets.all(8),
+              label: Text(chipOptions[index]),
+              selected: _value == index,
+              onSelected: (bool selected) {
+                setState(() {
+                  _value = selected ? index : null;
+                });
+                if (selected) {
+                  // Navigate to the corresponding page
+                  switch (index) {
+                    case 0:
+                      Navigator.pushNamed(context, '/front');
+                      break;
+                    case 1:
+                      Navigator.pushNamed(context, '/hot');
+                      break;
+                    case 2:
+                      Navigator.pushNamed(context, '/cold');
+                      break;
+                    case 3:
+                      Navigator.pushNamed(context, '/food');
+                  }
+                }
+              },
+            );
+          })),
+          Expanded(
+              child: FutureBuilder<List<Instruction>>(
+            future: getPostApi(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text("Error: ${snapshot.error}"));
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return Center(child: Text("No products found"));
+              } else {
+                postList = snapshot.data!;
+                // return GridView.builder(
+                //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                //         crossAxisCount: 3,
+                //         mainAxisSpacing: 16,
+                //         crossAxisSpacing: 16),
+
+                //     itemBuilder: (context, index) {
+                //       final product = postList[index];
+                //       return Card(
+                //         clipBehavior: Clip.antiAlias,
+                //         shape: RoundedRectangleBorder(
+                //           borderRadius: BorderRadius.circular(15),
+                //         ),
+                //         child: GridTile(
+                //           child:
+                //         Image.network(product.image,fit: BoxFit.fitWidth,height: 80,
+                //         ),
+                //         footer: Container(child: Text(product.prepTime),
+                //         padding: EdgeInsets.all(10),
+                //         ),),
+                //       );
+
+                //     },
+                //     itemCount: postList.length,);
+                return ListView.builder(
+                  itemCount: postList.length,
+                  itemBuilder: (context, index) {
+                    final product = postList[index];
+                    return Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      elevation: 10,
+                      
+                      child: ListTile(
+                        leading: Image.network(
+                          product.image,
+                          fit: BoxFit.cover,
+                          height: 50,
+                          width: 50,
+                          
+                        ),
+                        title: Text(product.name),
+                        subtitle: Text("Prep-Time:${product.prepTime}"),
+                        trailing: FloatingActionButton(
+                            onPressed: () => Navigator.pushNamed(
+                                context, MyRoutes.cartRoute),
+                            child: Icon(CupertinoIcons.add_circled_solid)),
+                      ),
+                    );
+                  },
+                );
+              }
+            },
+          )),
+        ]));
   }
 }
 
@@ -210,7 +231,7 @@ class _FrontPageState extends State<FrontPage> {
 //                     ),
 //                   );
 //                 });
-            
+
 //               };
 //             }),
 //           )

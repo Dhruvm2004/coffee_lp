@@ -44,6 +44,7 @@ dependencies:
   iconsax_flutter: ^1.0.0
   get: ^4.1.4
   http: ^1.2.2
+  velocity_x: ^4.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -5,7 +5,10 @@ import 'package:lp_2024/components/cart.dart';
 import 'package:lp_2024/components/profile.dart';
 
 import 'package:lp_2024/firebase_options.dart';
+import 'package:lp_2024/pages/cold_page.dart';
+import 'package:lp_2024/pages/food_page.dart';
 import 'package:lp_2024/pages/front_page.dart';
+import 'package:lp_2024/pages/hot_page.dart';
 import 'package:lp_2024/pages/login_page.dart';
 import 'package:lp_2024/pages/home_page.dart';
 import 'package:lp_2024/pages/signup_page.dart';
@@ -49,6 +52,10 @@ class MugMate extends StatelessWidget {
         MyRoutes.cartRoute:(context)=>CartPage(),
         MyRoutes.profileRoute:(context)=>ProfilePage(),
         MyRoutes.bottomRoute:(context)=>BottomNav(),
+        MyRoutes.hotRoute:(context)=>HotPage(),
+        MyRoutes.coldRoute:(context)=>ColdPage(),
+        MyRoutes.foodRoute:(context)=>FoodPage()
+
         
       },
     );
