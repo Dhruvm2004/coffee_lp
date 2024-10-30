@@ -146,7 +146,13 @@ class _FrontPageState extends State<FrontPage> {
                             onPressed: () => Navigator.pushNamed(
                                 context, MyRoutes.cartRoute),
                             child: Icon(CupertinoIcons.add_circled_solid)),
+                             onTap: () {
+                          Navigator.pushNamed(context, MyRoutes.allDetailRoute,
+                          arguments: product);
+                          
+                        },
                       ),
+                      
                     );
                   },
                 );

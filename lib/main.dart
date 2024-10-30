@@ -1,10 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:lp_2024/components/all_detail.dart';
 import 'package:lp_2024/components/bottom_nav.dart';
 import 'package:lp_2024/components/cart.dart';
+import 'package:lp_2024/components/cold_detail.dart';
+import 'package:lp_2024/components/detail_foodpage.dart';
+import 'package:lp_2024/components/hot_detail.dart';
 import 'package:lp_2024/components/profile.dart';
 
 import 'package:lp_2024/firebase_options.dart';
+import 'package:lp_2024/models/cold.dart';
 import 'package:lp_2024/pages/cold_page.dart';
 import 'package:lp_2024/pages/food_page.dart';
 import 'package:lp_2024/pages/front_page.dart';
@@ -54,7 +59,12 @@ class MugMate extends StatelessWidget {
         MyRoutes.bottomRoute:(context)=>BottomNav(),
         MyRoutes.hotRoute:(context)=>HotPage(),
         MyRoutes.coldRoute:(context)=>ColdPage(),
-        MyRoutes.foodRoute:(context)=>FoodPage()
+        MyRoutes.foodRoute:(context)=>FoodPage(),
+        MyRoutes.detailRoute:(context)=>DetailPage(),
+        MyRoutes.hotDetailRoute:(context)=>HotDetail(),
+          MyRoutes.coldDetailRoute:(context)=>ColdDetail(),
+            MyRoutes.allDetailRoute:(context)=>AllDetail(),
+
 
         
       },
