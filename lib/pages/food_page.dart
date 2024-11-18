@@ -21,7 +21,7 @@ class _FoodPageState extends State<FoodPage> {
   Future<List<Food>> getPostApi() async {
     final response = await http.get(
       Uri.parse(
-          'https://unicode-flutter-lp.onrender.com/get_products_by_category?category=FOOD'),
+          'https://unicode-flutter-lp-new.onrender.com/get_products_by_category?category=FOOD'),
     );
     var data = jsonDecode(response.body.toString());
 
@@ -137,10 +137,8 @@ class _FoodPageState extends State<FoodPage> {
                             child: Icon(CupertinoIcons.add_circled_solid)),
                         onTap: () {
                           Navigator.pushNamed(context, MyRoutes.detailRoute,
-                          arguments: product);
-                          
+                              arguments: product);
                         },
-
                       ),
                     );
                   },

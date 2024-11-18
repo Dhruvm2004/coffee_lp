@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lp_2024/components/all_detail.dart';
 import 'package:lp_2024/components/bottom_nav.dart';
 import 'package:lp_2024/components/cart.dart';
+// import 'package:lp_2024/components/cart_provider.dart';
 import 'package:lp_2024/components/cold_detail.dart';
 import 'package:lp_2024/components/detail_foodpage.dart';
 import 'package:lp_2024/components/hot_detail.dart';
@@ -20,13 +21,17 @@ import 'package:lp_2024/pages/signup_page.dart';
 import 'package:lp_2024/pages/splash.dart';
 
 import 'package:lp_2024/utils/routes.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options:DefaultFirebaseOptions.currentPlatform
   );
-  runApp(MugMate());
+  
+  runApp(
+     
+    MugMate());
 }
 
 class MugMate extends StatelessWidget {

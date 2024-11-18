@@ -3,10 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
+// import 'package:lp_2024/components/cart_provider.dart';git 
 import 'package:lp_2024/models/all_pro.dart';
 import 'package:lp_2024/models/hot.dart';
 import 'package:lp_2024/pages/auth.dart';
 import 'package:lp_2024/utils/routes.dart';
+import 'package:provider/provider.dart';
 
 class FrontPage extends StatefulWidget {
   const FrontPage({super.key});
@@ -30,8 +32,9 @@ class _FrontPageState extends State<FrontPage> {
 
   Future<List<Instruction>> getPostApi() async {
     final response = await http.get(
-      Uri.parse('https://unicode-flutter-lp.onrender.com/get_all_products'),
+      Uri.parse('https://unicode-flutter-lp-new.onrender.com/get_all_products'),
     );
+    //  print("API Response: ${response.body}");
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {
@@ -131,28 +134,25 @@ class _FrontPageState extends State<FrontPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       elevation: 10,
-                      
                       child: ListTile(
                         leading: Image.network(
                           product.image,
                           fit: BoxFit.cover,
                           height: 50,
                           width: 50,
-                          
                         ),
                         title: Text(product.name),
                         subtitle: Text("Prep-Time:${product.prepTime}"),
                         trailing: FloatingActionButton(
-                            onPressed: () => Navigator.pushNamed(
-                                context, MyRoutes.cartRoute),
+                            onPressed: () {
+ 
+                            },
                             child: Icon(CupertinoIcons.add_circled_solid)),
-                             onTap: () {
+                        onTap: () {
                           Navigator.pushNamed(context, MyRoutes.allDetailRoute,
-                          arguments: product);
-                          
+                              arguments: product);
                         },
                       ),
-                      
                     );
                   },
                 );
@@ -194,7 +194,7 @@ class _FrontPageState extends State<FrontPage> {
 //   List<Instruction> postList = [];
 //   Future<List<Instruction>> getPostApi() async {
 //     final response = await http.get(
-//         Uri.parse('https://unicode-flutter-lp.onrender.com/get_all_products'));
+//         Uri.parse('https://unicode-flutter-lp-new.onrender.com/get_all_products'));
 //     var data = jsonDecode(response.body.toString());
 //     if (response.statusCode == 200) {
 //       for(Map i in data){

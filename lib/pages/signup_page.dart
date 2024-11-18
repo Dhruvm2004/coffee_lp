@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,11 +18,22 @@ class _SignupPageState extends State<SignupPage> {
   var name = TextEditingController();
   var email = TextEditingController();
   var pass = TextEditingController();
+  var phone = TextEditingController();
+  var dob = TextEditingController(); 
   bool obscureText = true;
   Future<void> createUserWithEmailAndPassword() async {
-    try {
-      await Auth()
-          .createUserWithEmailAndPassword(email: email.text, pass: pass.text);
+    try { UserCredential userCredential=
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email.text, password: pass.text);
+        String userId = userCredential.user!.uid;
+        await FirebaseFirestore.instance.collection('users').doc(userId).set({
+        'name': name.text,
+        'email': email.text,
+        'phone': phone.text,
+        'date_of_birth': dob.text,
+      
+      },SetOptions(merge: true)
+      );
+      
       
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -45,7 +57,7 @@ class _SignupPageState extends State<SignupPage> {
             child: Center(
               child: Container(
                 padding: EdgeInsets.all(10),
-                height: 440,
+                height: 540,
                 width: 350,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -119,6 +131,56 @@ class _SignupPageState extends State<SignupPage> {
                             } else
                               return null;
                           }),
+                           SizedBox(height: 10),
+                      TextFormField(
+                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        controller: phone,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.phone, color: Colors.white70),
+                          hintText: 'Enter phone number',
+                          labelText: 'Phone Number',
+                          hintStyle: TextStyle(color: Colors.white38),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                width: 2,
+                                color: Colors.blueAccent,
+                              )),
+                        ),
+                        validator: (phone) {
+                          if (phone!.isEmpty) {
+                            return "Phone number cannot be empty";
+                          } else if (!RegExp(r'^\d{10}$').hasMatch(phone)) {
+                            return "Enter valid phone number";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      TextFormField(
+                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        controller: dob,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.calendar_today, color: Colors.white70),
+                          hintText: 'Enter date of birth (DD/MM/YYYY)',
+                          labelText: 'Date of Birth',
+                          hintStyle: TextStyle(color: Colors.white38),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                width: 2,
+                                color: Colors.blueAccent,
+                              )),
+                        ),
+                        validator: (dob) {
+                          if (dob!.isEmpty) {
+                            return "Date of birth cannot be empty";
+                          } else if (!RegExp(r'^\d{2}/\d{2}/\d{4}$').hasMatch(dob)) {
+                            return "Enter valid date format (DD/MM/YYYY)";
+                          }
+                          return null;
+                        },
+                      ),
                       SizedBox(
                         height: 10,
                       ),
@@ -173,39 +235,39 @@ class _SignupPageState extends State<SignupPage> {
                                   TextStyle(color: Colors.blue, fontSize: 16),
                             ),
                           ),
-                          
                         ],
                       ),
-                       FilledButton(
-                            onPressed: () async {
-                              String email_ = email.text;
-                              String pass_ = pass.text;
-                              print('name $email_ - password $pass_');
-                              if (formKey.currentState!.validate()) {
-                               final snackBar = SnackBar(
-                                  backgroundColor: Colors.transparent,
-                                  content: Text(
-                                    'Sign-up Successful!',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(color: Colors.white70),
-                                  ),
-                                );
-                                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                                await createUserWithEmailAndPassword();
-                              }
-                            },
-                            child: Text(
-                              'Sign-up',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 20,
+                      FilledButton(
+                        onPressed: () async {
+                          String email_ = email.text;
+                          String pass_ = pass.text;
+                          print('name $email_ - password $pass_');
+                          if (formKey.currentState!.validate()) {
+                            final snackBar = SnackBar(
+                              backgroundColor: Colors.transparent,
+                              content: Text(
+                                'Sign-up Successful!',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.white70),
                               ),
-                            ),
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  WidgetStateProperty.all(Colors.brown[900]),
-                            ),
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                            await createUserWithEmailAndPassword();
+                          }
+                        },
+                        child: Text(
+                          'Sign-up',
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 20,
                           ),
+                        ),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              WidgetStateProperty.all(Colors.brown[900]),
+                        ),
+                      ),
                     ],
                   ),
                 ),

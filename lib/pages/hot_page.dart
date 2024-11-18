@@ -13,13 +13,14 @@ class HotPage extends StatefulWidget {
 }
 
 class _HotPageState extends State<HotPage> {
-   List<Welcome> postList = [];
+  List<Welcome> postList = [];
   String? selectedType;
-   final List<String> chipOptions = ['ALL', 'Hot', 'Cold', 'Food'];
+  final List<String> chipOptions = ['ALL', 'Hot', 'Cold', 'Food'];
   int? _value = 1;
   Future<List<Welcome>> getPostApi() async {
     final response = await http.get(
-      Uri.parse('https://unicode-flutter-lp.onrender.com/get_products_by_category?category=HOT%20BEVERAGES'),
+      Uri.parse(
+          'https://unicode-flutter-lp-new.onrender.com/get_products_by_category?category=HOT%20BEVERAGES'),
     );
     var data = jsonDecode(response.body.toString());
 
@@ -36,7 +37,7 @@ class _HotPageState extends State<HotPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(
             "Hot Beverages",
@@ -46,9 +47,8 @@ class _HotPageState extends State<HotPage> {
             ),
           ),
         ),
-        body: Column(
-          children: [
-              Wrap(
+        body: Column(children: [
+          Wrap(
               children: List.generate(4, (int index) {
             return ChoiceChip(
               padding: EdgeInsets.all(8),
@@ -121,14 +121,12 @@ class _HotPageState extends State<HotPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       elevation: 10,
-                      
                       child: ListTile(
                         leading: Image.network(
                           product.image,
                           fit: BoxFit.cover,
                           height: 50,
                           width: 50,
-                          
                         ),
                         title: Text(product.name),
                         subtitle: Text("Prep-Time:${product.prepTime}"),
@@ -136,10 +134,9 @@ class _HotPageState extends State<HotPage> {
                             onPressed: () => Navigator.pushNamed(
                                 context, MyRoutes.cartRoute),
                             child: Icon(CupertinoIcons.add_circled_solid)),
-                             onTap: () {
+                        onTap: () {
                           Navigator.pushNamed(context, MyRoutes.hotDetailRoute,
-                          arguments: product);
-                          
+                              arguments: product);
                         },
                       ),
                     );
@@ -151,4 +148,3 @@ class _HotPageState extends State<HotPage> {
         ]));
   }
 }
-        
