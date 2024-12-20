@@ -76,6 +76,9 @@ flutter:
     
   - assets/images/coffe6.jpg
   - assets/images/coffe8.jpg
+  - assets/images/coffee1.jpg
+  - assets/images/coffee2.jpg
+  - assets/images/coffee3.jpg
   - assets/images/animations/ani-1.json
   #   - images/a_dot_ham.jpeg
 

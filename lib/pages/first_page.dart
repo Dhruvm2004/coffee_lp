@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
 
@@ -61,19 +62,52 @@ class FirstPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              
-              height: 300,
-              width: screenWidth,
-              child: Container(
-                padding: EdgeInsets.all(8.0),
-                child: Card(
-                  
-                  elevation: 4.0,
-                  // shadowColor: Colors.black,
-                  color: Colors.black,
-                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.0), // Optional rounded corners
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(context,'/front'),
+              child: SizedBox(
+                
+                height: 300,
+                width: screenWidth,
+                child: Container(
+                  padding: EdgeInsets.all(8.0),
+                  child: Card(
+                    
+                    
+                    elevation: 4.0,
+                    // shadowColor: Colors.black,
+                    color: Colors.black,
+                     shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.0), // Optional rounded corners
+                    ),
+                    child:Stack(
+                      
+                      // mainAxisAlignment: MainAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(16.0),
+                          child: Image.asset(
+                            'assets/images/coffee1.jpg', // Replace with your image asset
+                            height: 300,
+                            width: screenWidth,
+                            fit: BoxFit.cover,)
+
+                      ),
+                      Positioned(
+                        left: 16,
+                        bottom: 16,
+                      
+                      child: Text("All Menu",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 26,
+                      
+                        
+                      ),),)
+                     ],
+                    )
+                    
                   ),
                 ),
               ),
@@ -92,6 +126,34 @@ class FirstPage extends StatelessWidget {
                    shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.0), // Optional rounded corners
                   ),
+                  child:Stack(
+                      
+                      // mainAxisAlignment: MainAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(16.0),
+                          child: Image.asset(
+                            'assets/images/coffee2.jpg', // Replace with your image asset
+                            height: 300,
+                            width: screenWidth,
+                            fit: BoxFit.fill,)
+
+                      ),
+                      Positioned(
+                        left: 16,
+                        bottom: 16,
+                      
+                      child: Text("Special Offers",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 26,
+                      
+                        
+                      ),),)
+                     ],
+                    )
                 ),
               ),
             ),
@@ -109,6 +171,34 @@ class FirstPage extends StatelessWidget {
                    shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.0), // Optional rounded corners
                   ),
+                  child:Stack(
+                      
+                      // mainAxisAlignment: MainAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(16.0),
+                          child: Image.asset(
+                            'assets/images/coffee3.jpg', // Replace with your image asset
+                            height: 300,
+                            width: screenWidth,
+                            fit: BoxFit.cover,)
+
+                      ),
+                      Positioned(
+                        left: 16,
+                        bottom: 16,
+                      
+                      child: Text("Seasonal Special",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 26,
+                      
+                        
+                      ),),)
+                     ],
+                    )
                 ),
               ),
             )
