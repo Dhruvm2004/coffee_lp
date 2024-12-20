@@ -63,6 +63,11 @@ class ColdDetail extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
+              Text(
+                "Ingredients: ${food.recipeIngredient}",
+                style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+              ),
+              SizedBox(height: 16),
 
               // Additional Information Section (optional)
               // You can add more details such as ingredients, nutrition, etc.

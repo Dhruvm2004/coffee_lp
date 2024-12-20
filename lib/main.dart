@@ -12,6 +12,7 @@ import 'package:lp_2024/components/profile.dart';
 import 'package:lp_2024/firebase_options.dart';
 import 'package:lp_2024/models/cold.dart';
 import 'package:lp_2024/pages/cold_page.dart';
+import 'package:lp_2024/pages/first_page.dart';
 import 'package:lp_2024/pages/food_page.dart';
 import 'package:lp_2024/pages/front_page.dart';
 import 'package:lp_2024/pages/hot_page.dart';
@@ -69,6 +70,7 @@ class MugMate extends StatelessWidget {
         MyRoutes.hotDetailRoute:(context)=>HotDetail(),
           MyRoutes.coldDetailRoute:(context)=>ColdDetail(),
             MyRoutes.allDetailRoute:(context)=>AllDetail(),
+            MyRoutes.firstRoute:(context)=>FirstPage()
 
 
         

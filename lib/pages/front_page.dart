@@ -53,7 +53,7 @@ class _FrontPageState extends State<FrontPage> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(
-            "Home",
+            "Menu",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -147,7 +147,8 @@ class _FrontPageState extends State<FrontPage> {
                             onPressed: () {
  
                             },
-                            child: Icon(CupertinoIcons.add_circled_solid)),
+                            child: Icon(CupertinoIcons.add),
+                            backgroundColor: Colors.green[200],),
                         onTap: () {
                           Navigator.pushNamed(context, MyRoutes.allDetailRoute,
                               arguments: product);

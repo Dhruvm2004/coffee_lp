@@ -134,7 +134,8 @@ class _FoodPageState extends State<FoodPage> {
                         trailing: FloatingActionButton(
                             onPressed: () => Navigator.pushNamed(
                                 context, MyRoutes.cartRoute),
-                            child: Icon(CupertinoIcons.add_circled_solid)),
+                            child: Icon(CupertinoIcons.add),
+                            backgroundColor: Colors.green[200],),
                         onTap: () {
                           Navigator.pushNamed(context, MyRoutes.detailRoute,
                               arguments: product);

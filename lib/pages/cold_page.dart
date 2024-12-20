@@ -135,7 +135,8 @@ class _ColdPageState extends State<ColdPage> {
                       trailing: FloatingActionButton(
                           onPressed: () =>
                               Navigator.pushNamed(context, MyRoutes.cartRoute),
-                          child: Icon(CupertinoIcons.add_circled_solid)),
+                          child: Icon(CupertinoIcons.add),
+                          backgroundColor: Colors.green[200],),
                       onTap: () {
                         Navigator.pushNamed(context, MyRoutes.coldDetailRoute,
                             arguments: product);
