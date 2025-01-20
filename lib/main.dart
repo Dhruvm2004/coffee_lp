@@ -40,25 +40,31 @@ class MugMate extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.black,
-        appBarTheme: AppBarTheme(
-          color: Colors.brown[700],
-          elevation: 0.0,
-          iconTheme: const IconThemeData(
-            color: Colors.white
-          ),
-          
+      theme:ThemeData(
+  scaffoldBackgroundColor: Colors.black,
+  appBarTheme: AppBarTheme(
+    color: Colors.brown[700],
+    elevation: 0.0,
+    iconTheme: const IconThemeData(
+      color: Colors.white,
+    ),
+  ),
+  cardTheme: const CardThemeData(
+    color: Colors.white, // Default card background color
+    elevation: 2.0,     // Default card elevation
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8.0)), // Default shape
+    ),
+  ),
+),
 
-        )
-      ),
       home:const Splash(),
       routes: {
         MyRoutes.homeRoute: (context) => const HomePage(),
         MyRoutes.loginRoute: (context) => const LoginPage(),
         MyRoutes.signuproute:(context)=>const SignupPage(),
         MyRoutes.frontroute:(context)=>const FrontPage(),
-        MyRoutes.cartRoute:(context)=>const CartPage(),
+        //MyRoutes.cartRoute:(context)=>const CartPage(),
         MyRoutes.profileRoute:(context)=>const ProfilePage(),
         MyRoutes.bottomRoute:(context)=>const BottomNav(),
         

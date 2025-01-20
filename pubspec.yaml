@@ -44,7 +44,6 @@ dependencies:
   iconsax_flutter: ^1.0.0
   get: ^4.1.4
   http: ^1.2.2
-  velocity_x: ^4.2.1
   flutter_cart: ^0.0.9
   shared_preferences: ^2.3.2
   cloud_firestore: ^5.4.4

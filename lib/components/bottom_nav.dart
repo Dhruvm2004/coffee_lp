@@ -22,7 +22,7 @@ class _BottomNavState extends State<BottomNav> {
     // HotPage(),
     // ColdPage(),
     // FoodPage(),
-    CartPage(),
+    //CartPage(),
     ProfilePage(),
   ];
 
