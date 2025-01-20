@@ -2,13 +2,10 @@ import 'dart:convert';
 
 
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lp_2024/main.dart';
 import 'package:lp_2024/models/all_pro.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter_cart/cart.dart';
 
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
@@ -45,13 +42,74 @@ class _CartPageState extends State<CartPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.brown.shade700,
-        title: Text(
+        title: const Text(
           "Cart",
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w700,
           ),
         ),
+      ),
+      body: Column(
+        children: [
+          const _CartList().p32().expand(),
+          const Divider(),
+          const _CartTotal(),
+
+        ],
+      ),
+    );
+  }
+}
+class _CartTotal extends StatelessWidget {
+  const _CartTotal();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          '\$9999'.text.xl5.make(),
+          const WidthBox(150),
+          SizedBox(
+            width: 100,
+            child: FloatingActionButton(onPressed: (){
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: 'buy not supported'.text.make()));
+            }
+            ,
+            elevation: 10,child: const Text('Buy',
+            style: TextStyle(
+              fontSize: 22,
+              
+            ),)
+            ,
+            
+            
+            ),
+          )
+        ],
+      ),
+    ) ;}
+}
+class _CartList extends StatefulWidget {
+  const _CartList();
+
+  @override
+  State<_CartList> createState() => __CartListState();
+}
+
+class __CartListState extends State<_CartList> {
+  final List<Instruction> _cartItems = [];
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount:_cartItems.length,
+      itemBuilder: (context,index)=>ListTile(
+        leading: const Icon(Icons.done),
+        trailing: IconButton(onPressed: (){}, icon: const Icon(Icons.remove_circle_outline)),
+        title: "Item 1".text.make(),
       ),
     );
   }

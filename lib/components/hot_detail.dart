@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lp_2024/models/food.dart';
 import 'package:lp_2024/models/hot.dart';
 
 class HotDetail extends StatelessWidget {
@@ -14,12 +13,12 @@ class HotDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           food.name,
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
         ),
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,39 +34,39 @@ class HotDetail extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // Food Name
               Text(
                 food.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
 
               // Prep Time
               Text(
                 "Prep Time: ${food.prepTime}",
                 style: TextStyle(fontSize: 16, color: Colors.grey[600]),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // Description
               Text(
                 food.description,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.5,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
                 "Ingredients: ${food.recipeIngredient}",
                 style: TextStyle(fontSize: 16, color: Colors.grey[600]),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // Additional Information Section (optional)
               // You can add more details such as ingredients, nutrition, etc.

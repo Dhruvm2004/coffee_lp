@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:lp_2024/components/cart.dart';
 import 'package:lp_2024/components/profile.dart';
-import 'package:lp_2024/pages/cold_page.dart';
+
 import 'package:lp_2024/pages/first_page.dart';
-import 'package:lp_2024/pages/food_page.dart';
-import 'package:lp_2024/pages/front_page.dart';
-import 'package:lp_2024/pages/hot_page.dart';
+
+
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});

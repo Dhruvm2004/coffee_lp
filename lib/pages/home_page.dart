@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lp_2024/utils/routes.dart';
-import '';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,8 +11,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(top: 100, bottom: 40),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.only(top: 100, bottom: 40),
+          decoration: const BoxDecoration(
             color: Colors.black,
             image: DecorationImage(
                 image: AssetImage("images/coffe6.jpg"),
@@ -46,18 +45,18 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         letterSpacing: 1),
                   ),
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   InkWell(
                     onTap: ()=>Navigator.pushNamed(context,MyRoutes.loginRoute),
                     child: Container(
                       alignment: Alignment.center,
                       padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                          const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                       decoration: BoxDecoration(
                         color: Colors.green,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text("Get Started",
+                      child: const Text("Get Started",
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         color: Colors.white

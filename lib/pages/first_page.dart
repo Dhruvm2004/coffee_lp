@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
 
@@ -11,7 +9,7 @@ class FirstPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title:Text("Home",
+        title:const Text("Home",
         style: 
         TextStyle(
           color: Colors.white
@@ -22,22 +20,26 @@ class FirstPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 16.0
                     ),
                     width: screenWidth *0.8,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(20.0)
+                    ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.search,color: Colors.black54.withOpacity(0.6),
                         ),
-                        SizedBox(width: 8,),
+                        const SizedBox(width: 8,),
                         Expanded(child: 
                         TextField(
                           
@@ -53,10 +55,6 @@ class FirstPage extends StatelessWidget {
                         ))
                       ],
                     ),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(20.0)
-                    ),
                   ),
                  
                 ],
@@ -69,7 +67,7 @@ class FirstPage extends StatelessWidget {
                 height: 300,
                 width: screenWidth,
                 child: Container(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Card(
                     
                     
@@ -93,7 +91,7 @@ class FirstPage extends StatelessWidget {
                             fit: BoxFit.cover,)
 
                       ),
-                      Positioned(
+                      const Positioned(
                         left: 16,
                         bottom: 16,
                       
@@ -117,7 +115,7 @@ class FirstPage extends StatelessWidget {
               height: 300,
               width: screenWidth,
               child: Container(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Card(
                   
                   elevation: 4.0,
@@ -140,7 +138,7 @@ class FirstPage extends StatelessWidget {
                             fit: BoxFit.fill,)
 
                       ),
-                      Positioned(
+                      const Positioned(
                         left: 16,
                         bottom: 16,
                       
@@ -162,7 +160,7 @@ class FirstPage extends StatelessWidget {
               height: 300,
               width: screenWidth,
               child: Container(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Card(
                   
                   elevation: 4.0,
@@ -185,7 +183,7 @@ class FirstPage extends StatelessWidget {
                             fit: BoxFit.cover,)
 
                       ),
-                      Positioned(
+                      const Positioned(
                         left: 16,
                         bottom: 16,
                       

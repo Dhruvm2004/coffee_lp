@@ -69,7 +69,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "My Profile",
           style: TextStyle(
             color: Colors.white,
@@ -81,11 +81,11 @@ class ProfilePage extends StatelessWidget {
         future: getUserData(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text("Error: ${snapshot.error}"));
           } else if (!snapshot.hasData || snapshot.data == null) {
-            return Center(child: Text("User data not found."));
+            return const Center(child: Text("User data not found."));
           }
 
           final userData = snapshot.data!;
@@ -96,41 +96,41 @@ class ProfilePage extends StatelessWidget {
               children: [
                 Card(
                   elevation: 4.0,
-                  margin: EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ListTile(
                     leading: Icon(CupertinoIcons.profile_circled,
                      color: Colors.purple[900]),
-                    title: Text("Name"),
+                    title: const Text("Name"),
                     subtitle: Text(userData['name'] ?? 'No name provided'),
                   ),
                 ),
                 Card(
                   elevation: 4.0,
-                  margin: EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ListTile(
                     leading: Icon(CupertinoIcons.mail,
                      color: Colors.purple[900]),
-                    title: Text("Email"),
+                    title: const Text("Email"),
                     subtitle: Text(userData['email'] ?? 'No email provided'),
                   ),
                 ),
                 Card(
                   elevation: 4.0,
-                  margin: EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ListTile(
                     leading: Icon(CupertinoIcons.phone,
                     color: Colors.purple[900],),
-                    title: Text("Phone Number"),
+                    title: const Text("Phone Number"),
                     subtitle: Text(userData['phone'] ?? 'No phone number provided'),
                   ),
                 ),
                 Card(
                   elevation: 4.0,
-                  margin: EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ListTile(
                     leading: Icon(CupertinoIcons.calendar,
                      color: Colors.purple[900]),
-                    title: Text("Date of Birth"),
+                    title: const Text("Date of Birth"),
                     subtitle: Text(userData['date_of_birth'] ?? 'No date of birth provided'),
                   ),
                 ),

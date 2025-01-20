@@ -10,19 +10,17 @@ import 'package:lp_2024/components/hot_detail.dart';
 import 'package:lp_2024/components/profile.dart';
 
 import 'package:lp_2024/firebase_options.dart';
-import 'package:lp_2024/models/cold.dart';
-import 'package:lp_2024/pages/cold_page.dart';
+
 import 'package:lp_2024/pages/first_page.dart';
-import 'package:lp_2024/pages/food_page.dart';
+
 import 'package:lp_2024/pages/front_page.dart';
-import 'package:lp_2024/pages/hot_page.dart';
+
 import 'package:lp_2024/pages/login_page.dart';
 import 'package:lp_2024/pages/home_page.dart';
 import 'package:lp_2024/pages/signup_page.dart';
 import 'package:lp_2024/pages/splash.dart';
 
 import 'package:lp_2024/utils/routes.dart';
-import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +30,7 @@ void main() async {
   
   runApp(
      
-    MugMate());
+    const MugMate());
 }
 
 class MugMate extends StatelessWidget {
@@ -47,30 +45,28 @@ class MugMate extends StatelessWidget {
         appBarTheme: AppBarTheme(
           color: Colors.brown[700],
           elevation: 0.0,
-          iconTheme: IconThemeData(
+          iconTheme: const IconThemeData(
             color: Colors.white
           ),
           
 
         )
       ),
-      home:Splash(),
+      home:const Splash(),
       routes: {
-        MyRoutes.homeRoute: (context) => HomePage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
-        MyRoutes.signuproute:(context)=>SignupPage(),
-        MyRoutes.frontroute:(context)=>FrontPage(),
-        MyRoutes.cartRoute:(context)=>CartPage(),
-        MyRoutes.profileRoute:(context)=>ProfilePage(),
-        MyRoutes.bottomRoute:(context)=>BottomNav(),
-        MyRoutes.hotRoute:(context)=>HotPage(),
-        MyRoutes.coldRoute:(context)=>ColdPage(),
-        MyRoutes.foodRoute:(context)=>FoodPage(),
-        MyRoutes.detailRoute:(context)=>DetailPage(),
-        MyRoutes.hotDetailRoute:(context)=>HotDetail(),
-          MyRoutes.coldDetailRoute:(context)=>ColdDetail(),
-            MyRoutes.allDetailRoute:(context)=>AllDetail(),
-            MyRoutes.firstRoute:(context)=>FirstPage()
+        MyRoutes.homeRoute: (context) => const HomePage(),
+        MyRoutes.loginRoute: (context) => const LoginPage(),
+        MyRoutes.signuproute:(context)=>const SignupPage(),
+        MyRoutes.frontroute:(context)=>const FrontPage(),
+        MyRoutes.cartRoute:(context)=>const CartPage(),
+        MyRoutes.profileRoute:(context)=>const ProfilePage(),
+        MyRoutes.bottomRoute:(context)=>const BottomNav(),
+        
+        MyRoutes.detailRoute:(context)=>const DetailPage(),
+        MyRoutes.hotDetailRoute:(context)=>const HotDetail(),
+          MyRoutes.coldDetailRoute:(context)=>const ColdDetail(),
+            MyRoutes.allDetailRoute:(context)=>const AllDetail(),
+            MyRoutes.firstRoute:(context)=>const FirstPage()
 
 
         

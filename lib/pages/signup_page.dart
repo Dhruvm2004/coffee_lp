@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lp_2024/pages/auth.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -42,13 +41,14 @@ class _SignupPageState extends State<SignupPage> {
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           Container(
             alignment: Alignment.center,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/coffe8.jpg"), fit: BoxFit.cover),
             ),
@@ -56,7 +56,7 @@ class _SignupPageState extends State<SignupPage> {
             // filter: ImageFilter.blur(sigmaX: 2.5, sigmaY: 2.5),
             child: Center(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 height: 540,
                 width: 350,
                 decoration: BoxDecoration(
@@ -69,7 +69,7 @@ class _SignupPageState extends State<SignupPage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -79,47 +79,48 @@ class _SignupPageState extends State<SignupPage> {
                             color: Colors.white70,
                             fontSize: 50),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       TextFormField(
-                          style: TextStyle(color: Colors.white70, fontSize: 16),
+                          style: const TextStyle(color: Colors.white70, fontSize: 16),
                           controller: name,
                           decoration: InputDecoration(
                               prefixIcon:
-                                  Icon(Icons.man, color: Colors.white70),
+                                  const Icon(Icons.man, color: Colors.white70),
                               hintText: 'enter username',
                               labelText: 'username',
-                              hintStyle: TextStyle(color: Colors.white38),
+                              hintStyle: const TextStyle(color: Colors.white38),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     width: 2,
                                     color: Colors.blueAccent,
                                   ))),
                           validator: (name) {
                             if (name!.isEmpty) {
                               return 'enter valid username';
-                            } else
+                            } else {
                               return null;
+                            }
                           }),
-                      SizedBox(
+                      const SizedBox(
                         height: 10 + 10,
                       ),
                       TextFormField(
-                          style: TextStyle(color: Colors.white70, fontSize: 16),
+                          style: const TextStyle(color: Colors.white70, fontSize: 16),
                           controller: email,
                           decoration: InputDecoration(
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.mail,
                                 color: Colors.white70,
                               ),
                               hintText: 'enter email',
                               labelText: 'Email',
-                              hintStyle: TextStyle(color: Colors.white38),
+                              hintStyle: const TextStyle(color: Colors.white38),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     width: 2,
                                     color: Colors.blueAccent,
                                   ))),
@@ -128,21 +129,22 @@ class _SignupPageState extends State<SignupPage> {
                                 !RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
                                     .hasMatch(email)) {
                               return 'enter valid email';
-                            } else
+                            } else {
                               return null;
+                            }
                           }),
-                           SizedBox(height: 10),
+                           const SizedBox(height: 10),
                       TextFormField(
-                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        style: const TextStyle(color: Colors.white70, fontSize: 16),
                         controller: phone,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.phone, color: Colors.white70),
+                          prefixIcon: const Icon(Icons.phone, color: Colors.white70),
                           hintText: 'Enter phone number',
                           labelText: 'Phone Number',
-                          hintStyle: TextStyle(color: Colors.white38),
+                          hintStyle: const TextStyle(color: Colors.white38),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 width: 2,
                                 color: Colors.blueAccent,
                               )),
@@ -156,18 +158,18 @@ class _SignupPageState extends State<SignupPage> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextFormField(
-                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        style: const TextStyle(color: Colors.white70, fontSize: 16),
                         controller: dob,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.calendar_today, color: Colors.white70),
+                          prefixIcon: const Icon(Icons.calendar_today, color: Colors.white70),
                           hintText: 'Enter date of birth (DD/MM/YYYY)',
                           labelText: 'Date of Birth',
-                          hintStyle: TextStyle(color: Colors.white38),
+                          hintStyle: const TextStyle(color: Colors.white38),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 width: 2,
                                 color: Colors.blueAccent,
                               )),
@@ -181,27 +183,27 @@ class _SignupPageState extends State<SignupPage> {
                           return null;
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       TextFormField(
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white38,
                           fontSize: 16,
                         ),
                         controller: pass,
                         obscureText: true,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.lock,
                             color: Colors.white70,
                           ),
                           hintText: 'enter password',
                           labelText: 'password',
-                          hintStyle: TextStyle(color: Colors.white38),
+                          hintStyle: const TextStyle(color: Colors.white38),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 width: 2,
                                 color: Colors.blueAccent,
                               )),
@@ -218,7 +220,7 @@ class _SignupPageState extends State<SignupPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "Account already exist ?,",
                             style: TextStyle(
                               fontSize: 16,
@@ -229,7 +231,7 @@ class _SignupPageState extends State<SignupPage> {
                             onPressed: () {
                               Navigator.pushNamed(context, '/login');
                             },
-                            child: Text(
+                            child: const Text(
                               "Login",
                               style:
                                   TextStyle(color: Colors.blue, fontSize: 16),
@@ -243,7 +245,7 @@ class _SignupPageState extends State<SignupPage> {
                           String pass_ = pass.text;
                           print('name $email_ - password $pass_');
                           if (formKey.currentState!.validate()) {
-                            final snackBar = SnackBar(
+                            const snackBar = SnackBar(
                               backgroundColor: Colors.transparent,
                               content: Text(
                                 'Sign-up Successful!',
@@ -256,16 +258,16 @@ class _SignupPageState extends State<SignupPage> {
                             await createUserWithEmailAndPassword();
                           }
                         },
-                        child: Text(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              WidgetStateProperty.all(Colors.brown[900]),
+                        ),
+                        child: const Text(
                           'Sign-up',
                           style: TextStyle(
                             color: Colors.white70,
                             fontSize: 20,
                           ),
-                        ),
-                        style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStateProperty.all(Colors.brown[900]),
                         ),
                       ),
                     ],
